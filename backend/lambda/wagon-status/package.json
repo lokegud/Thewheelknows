@@ -1,0 +1,9 @@
+{
+  "name": "wagon-status",
+  "version": "1.0.0",
+  "description": "Lambda function to check Govee smart plug status",
+  "main": "index.js",
+  "dependencies": {},
+  "author": "",
+  "license": "MIT"
+}
