@@ -3,11 +3,14 @@ async function checkWagonStatus() {
   try {
     const statusElement = document.getElementById('status');
     statusElement.textContent = 'Checking if we\'re open...';
-    statusElement.className = 'status';
     
     const response = await fetch('https://w1tys5btw0.execute-api.us-west-1.amazonaws.com/Prod');
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
     const data = await response.json();
     
+    // Show status on page
     if (data.isOpen) {
       statusElement.textContent = 'We\'re OPEN! Come on in!';
       statusElement.className = 'status open';
@@ -16,15 +19,8 @@ async function checkWagonStatus() {
       statusElement.className = 'status closed';
     }
   } catch (error) {
-    console.error('Error:', error);
-    document.getElementById('status').textContent = 'Unable to check if we\'re open. Please call us!';
+    // This will show errors directly on the page
+    document.getElementById('status').textContent = `Error: ${error.message}`;
+    document.getElementById('status').className = 'status closed';
   }
 }
-
-// Check status when page loads
-document.addEventListener('DOMContentLoaded', () => {
-  checkWagonStatus();
-  
-  // Refresh status every 60 seconds
-  setInterval(checkWagonStatus, 60000);
-});
