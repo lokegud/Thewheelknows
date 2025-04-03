@@ -4,7 +4,7 @@ async function checkWagonStatus() {
     const statusElement = document.getElementById('status');
     statusElement.textContent = 'Checking if we\'re open...';
     
-    const response = await fetch('https://w1tys5btw0.execute-api.us-west-1.amazonaws.com/Prod');
+    const response = await fetch('https://d86jnhk4q8.execute-api.us-west-1.amazonaws.com/Prod');
     if (!response.ok) {
       throw new Error(`API error: ${response.status}`);
     }
