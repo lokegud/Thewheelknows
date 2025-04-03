@@ -1,13 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>The Wheel Knows</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wagon Wheel Bar and Saloon</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>The Wheel Knows</h1>
-    <div id="status" class="status">Checking wagon status...</div>
+    <header>
+      <h1>Wagon Wheel Bar and Saloon</h1>
+    </header>
+    
+    <main>
+      <div id="status" class="status">Checking if we're open...</div>
+      
+      <div class="directions-container">
+        <h2>Come Visit Us!</h2>
+        <p class="address">3320 Mendocino Ave, Santa Rosa CA 95401</p>
+        
+        <div class="buttons">
+          <a href="https://www.google.com/maps/search/?api=1&query=3320+Mendocino+Ave,+Santa+Rosa+CA+95401" class="btn" target="_blank">
+            <img src="assets/google-maps-svgrepo-com.svg" alt="Maps">
+            Google Maps
+          </a>
+          <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=3320%20Mendocino%20Ave,%20Santa%20Rosa%20CA%2095401" class="btn" target="_blank">
+            <img src="assets/uber-driver-svgepo-com.svg" alt="Uber">
+            Uber
+          </a>
+          <a href="https://lyft.com/ride?id=lyft&destination[address]=3320%20Mendocino%20Ave,%20Santa%20Rosa%20CA%2095401" class="btn" target="_blank">
+            <img src="assets/lyft-svgrepo-com.svg" alt="Lyft">
+            Lyft
+          </a>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 Wagon Wheel Bar and Saloon</p>
+    </footer>
   </div>
   <script src="js/app.js"></script>
 </body>
