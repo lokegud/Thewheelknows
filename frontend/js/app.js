@@ -2,21 +2,46 @@
 async function checkWagonStatus() {
   try {
     const statusElement = document.getElementById('status');
-    statusElement.textContent = 'Starting API call...';
+    
+    // Show which step we're on
+    statusElement.textContent = '(1) Starting API call...';
     
     // Use the correct API URL
     const apiUrl = 'https://d86jnhk4q8.execute-api.us-west-1.amazonaws.com/Prod';
+    statusElement.textContent = `(2) Will fetch from: ${apiUrl}`;
     
-    statusElement.textContent = 'Fetching from API...';
-    const response = await fetch(apiUrl);
+    // Make the fetch call with explicit CORS mode
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      mode: 'cors', // Explicitly request CORS
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
     
-    statusElement.textContent = 'Got response! Status: ' + response.status;
-    const data = await response.json();
+    statusElement.textContent = `(3) Response status: ${response.status} ${response.statusText}`;
     
-    statusElement.textContent = 'Parsed data: ' + JSON.stringify(data);
+    // Check if response is JSON
+    const contentType = response.headers.get('content-type');
+    statusElement.textContent = `(4) Content-Type: ${contentType}`;
     
-    // Process the data
-    if (data.isOpen !== undefined) {
+    // Parse the response
+    const text = await response.text();
+    statusElement.textContent = `(5) Raw response: ${text.substring(0, 100)}...`;
+    
+    let data;
+    try {
+      data = JSON.parse(text);
+      statusElement.textContent = `(6) Parsed JSON: ${JSON.stringify(data)}`;
+    } catch (parseError) {
+      statusElement.textContent = `Error parsing JSON: ${parseError.message}`;
+      return;
+    }
+    
+    // Check data structure
+    if (data && data.isOpen !== undefined) {
+      statusElement.textContent = `(7) Found isOpen: ${data.isOpen}`;
+      
       if (data.isOpen) {
         statusElement.textContent = 'We\'re OPEN! Come on in!';
         statusElement.className = 'status open';
@@ -25,9 +50,15 @@ async function checkWagonStatus() {
         statusElement.className = 'status closed';
       }
     } else {
-      statusElement.textContent = 'Unexpected API response format';
+      statusElement.textContent = `Error: Unexpected API response format. Got: ${JSON.stringify(data)}`;
     }
   } catch (error) {
-    document.getElementById('status').textContent = 'Error: ' + error.message;
+    document.getElementById('status').textContent = `Error: ${error.name}: ${error.message}`;
   }
 }
+
+// Run immediately
+checkWagonStatus();
+
+// Check status every 30 seconds instead of 10
+setInterval(checkWagonStatus, 30000);
