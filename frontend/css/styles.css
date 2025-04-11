@@ -60,14 +60,14 @@ h2 {
 }
 
 .open {
-  background-color: rgba(76, 175, 80, 0.2);
-  color: var(--open-color);
+  background-color: var(--open-color);
+  color: white;
   border-left: 5px solid var(--open-color);
 }
 
 .closed {
-  background-color: rgba(244, 67, 54, 0.2);
-  color: var(--closed-color);
+  background-color: var(--closed-color);
+  color: white;
   border-left: 5px solid var(--closed-color);
 }
 
