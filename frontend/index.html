@@ -266,7 +266,7 @@
     }
 
     /* Responsive adjustments */
-    @media (max-width: 768px) {
+    @media (max-width: 650px) {
       .container {
         padding: 20px 15px;
       }
@@ -315,7 +315,9 @@
     <header>
       <h1>Wagon Wheel</h1>
     </header>
-    
+
+    <div id="status" class="status">Checking if we're open...</div>
+   
     <div class="pool-balls">
       <div class="ball ball-8">8</div>
       <div class="ball ball-13">13</div>
@@ -329,26 +331,17 @@
       <div class="day day-friday">
         <div class="day-name">FRIDAY</div>
         <div class="day-time">8PM</div>
-      </div>
+        <div class="buy-in-price">$5 BUY IN</div>
+        <div class="buy-in-type">SCOTCH DOUBLES</div>
+       </div>
       <div class="day day-saturday">
         <div class="day-name">SATURDAY</div>
         <div class="day-time">8PM</div>
-      </div>
-    </div>
-    
-    <div class="buy-ins">
-      <div class="buy-in buy-in-scotch">
-        <div class="buy-in-price">$5 BUY IN</div>
-        <div class="buy-in-type">SCOTCH DOUBLES</div>
-      </div>
-      <div class="buy-in buy-in-individual">
         <div class="buy-in-price">$10 BUY IN</div>
         <div class="buy-in-type">INDIVIDUAL PLAY</div>
       </div>
-    </div>
-    
-    <div id="status" class="status">Checking if we're open...</div>
-    
+    </div> 
+     
     <div class="directions-container">
       <h2>Come Visit Us!</h2>
       <p class="address">3320 Mendocino Ave, Santa Rosa CA 95401</p>
@@ -378,4 +371,3 @@
   <script src="js/app.js"></script>
 </body>
 </html>
-
