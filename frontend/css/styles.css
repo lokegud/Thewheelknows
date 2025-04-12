@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -60,15 +60,18 @@ h2 {
 }
 
 .open {
-  background-color: var(--open-color);
+  background-color: var(bright green);
   color: white;
   border-left: 5px solid var(--open-color);
+  border-right: 5px solid ver(--open-color);
+
 }
 
 .closed {
-  background-color: var(--closed-color);
+  background-color: var(bright red);
   color: white;
   border-left: 5px solid var(--closed-color);
+  border-right: 5px solid var(--closed-color);
 }
 
 .directions-container {
@@ -76,6 +79,7 @@ h2 {
   margin: 40px auto;
   padding: 30px;
   background-color: white;
+  color; dark green;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 600px;
