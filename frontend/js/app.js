@@ -43,10 +43,10 @@ async function checkWagonStatus() {
       statusElement.textContent = `(7) Found isOpen: ${data.isOpen}`;
       
       if (data.isOpen) {
-        statusElement.textContent = 'We\'re OPEN! Come on in!';
+        statusElement.textContent = 'We\'re OPEN! Come on in! (updates every minute)';
         statusElement.className = 'status open';
       } else {
-        statusElement.textContent = 'Sorry, we\'re CLOSED right now.';
+        statusElement.textContent = 'Sorry, we\'re CLOSED right now. (updates every minute)';
         statusElement.className = 'status closed';
       }
     } else {

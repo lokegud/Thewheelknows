@@ -60,20 +60,14 @@ h2 {
 }
 
 .open {
-  background-color: var(bright green);
+  background-color: #00FF00;
   color: white;
-  border-left: 5px solid var(--open-color);
-  border-right: 5px solid ver(--open-color);
-
 }
 
 .closed {
-  background-color: var(bright red);
+  background-color: #FF0000;
   color: white;
-  border-left: 5px solid var(--closed-color);
-  border-right: 5px solid var(--closed-color);
 }
-
 .directions-container {
   text-align: center;
   margin: 40px auto;
